@@ -5,6 +5,8 @@ import '../modules/Screens/OtpScreen/views/otp_screen_view.dart';
 import '../modules/Screens/TrialTransitionView/trial_transition_view.dart';
 import '../modules/Screens/home/bindings/home_binding.dart';
 import '../modules/Screens/home/views/home_view.dart';
+import '../modules/Screens/notifications/bindings/notifications_binding.dart';
+import '../modules/Screens/notifications/views/notifications_view.dart';
 import '../modules/Screens/onBoarding/bindings/on_boarding_binding.dart';
 import '../modules/Screens/onBoarding/views/on_boarding_view.dart';
 import '../modules/Screens/phone_verification/bindings/phone_verification_binding.dart';
@@ -19,7 +21,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SUBSCRIPTION;
+  static const INITIAL = Routes.NOTIFICATIONS;
 
   static final routes = [
     GetPage(
@@ -49,9 +51,14 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SUBSCRIPTION,
-      page: () =>  SubscriptionView(),
+      page: () => SubscriptionView(),
       binding: SubscriptionBinding(),
     ),
     GetPage(name: '/trial-transition', page: () => TrialTransitionView()),
+    GetPage(
+      name: _Paths.NOTIFICATIONS,
+      page: () =>  NotificationsView(),
+      binding: NotificationsBinding(),
+    ),
   ];
 }

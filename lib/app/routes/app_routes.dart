@@ -9,6 +9,7 @@ abstract class Routes {
   static const PHONE_VERIFICATION = _Paths.PHONE_VERIFICATION;
   static const HOME = _Paths.HOME;
   static const SUBSCRIPTION = _Paths.SUBSCRIPTION;
+  static const NOTIFICATIONS = _Paths.NOTIFICATIONS;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const PHONE_VERIFICATION = '/phone-verification';
   static const HOME = '/home';
   static const SUBSCRIPTION = '/subscription';
+  static const NOTIFICATIONS = '/notifications';
 }
