@@ -21,8 +21,8 @@ class SubscriptionController extends GetxController {
       // Navigate to dialog popup
       Get.dialog(
         FreePopUp(onNext: () {
-          Get.back(); // close the dialog
-          Get.to(() => TrialTransitionView()); // navigate to trial activation screen
+          Get.back();
+          Get.to(() => TrialTransitionView());
         },));
 
       // After delay, go to home screen

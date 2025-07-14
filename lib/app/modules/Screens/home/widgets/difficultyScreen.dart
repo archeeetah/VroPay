@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vropay/Utilities%20/constants%20/KImages.dart';
+import '../../../../../Components /back_icon.dart';
 import '../../../../../Components /outlinedConstantButton.dart';
 import '../controllers/home_controller.dart';
 
@@ -22,19 +23,20 @@ class DifficultyLevelScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: BackIcon(),
+            ),
             Image.asset(KImages.difficultyImage, height: 200, width: 170),
             SizedBox(
               width: screenWidth * 0.95,
-            ),
-            const SizedBox(
-              height: 10,
             ),
             const Text(
               'Select the difficulty level\n for your feed',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 21,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w300,
                 color: Color(0xFF172B75),
               ),
             ),

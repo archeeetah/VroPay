@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-class NotificationScreen extends StatelessWidget {
-  final VoidCallback onNext;
+import '../../../../../Components /back_icon.dart';
 
-  const NotificationScreen({required this.onNext});
+class NotificationScreen extends StatelessWidget {
+  final VoidCallback onFinish;
+
+  const NotificationScreen({required this.onFinish});
 
   @override
   Widget build(BuildContext context) {
@@ -15,17 +17,21 @@ class NotificationScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: BackIcon(),
+            ),
             Image.asset('assets/images/notification.png', height: 183,width: 145,),
             const SizedBox(height: 20,),
             const Text(
               'Notification',
-              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600,
+              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300,
               color: Color(0xFF172B75),
               ),
             ),
             const SizedBox(height: 10),
             const Text(
-              'Please enable notifications to receive updates and feeds of your interests.',
+              'nudges to keep you\n sharp and moving forward',
               textAlign: TextAlign.center,
               style: TextStyle(color: Color(0x8F172B75)),
             ),
@@ -35,9 +41,9 @@ class NotificationScreen extends StatelessWidget {
             SizedBox(
               width: 250,
               child: ElevatedButton(
-                onPressed: onNext,
+                onPressed: onFinish,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFEF2D56),
+                  backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(28),
@@ -45,12 +51,16 @@ class NotificationScreen extends StatelessWidget {
                       bottomLeft: Radius.circular(8),
                       bottomRight: Radius.circular(28),
                     ),
+                    side: BorderSide(
+                      color: Color(0xFFEF2D56),
+                      width: 0.4
+                    )
                   ),
                 ),
                 child: const Text(
                   "Turn on",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFFEF2D56),
                     fontWeight: FontWeight.w600,
                     fontSize: 18
                   ),
@@ -60,7 +70,7 @@ class NotificationScreen extends StatelessWidget {
 
             const SizedBox(height: 16),
             GestureDetector(
-              onTap: onNext,
+              onTap: onFinish,
               child: const Text(
                 "Skip for now",
                 style: TextStyle(color: Color(0xFFEF2D56),

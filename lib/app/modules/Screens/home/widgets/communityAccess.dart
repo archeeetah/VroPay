@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../Components /back_icon.dart';
 import '../controllers/home_controller.dart';
 
 class CommunityAccessScreen extends StatelessWidget {
-  final VoidCallback onFinish;
+  final VoidCallback onNext;
 
-  const CommunityAccessScreen({required this.onFinish});
+  const CommunityAccessScreen({required this.onNext});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,10 @@ class CommunityAccessScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: BackIcon(),
+            ),
             Image.asset(
               'assets/images/communityAccess.png',
               height: 150,
@@ -28,13 +33,14 @@ class CommunityAccessScreen extends StatelessWidget {
             const SizedBox(height: 20),
             const Text(
               'Community Access',
-              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600,
+              style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300,
                   color: Color(0xFF172B75)),
             ),
             const Text(
-              'engage, connect and share.',
+              'for the topics selected',
               style: TextStyle(color: Color(0x8F172B75),
-                  fontSize: 14),
+                  fontSize: 14,
+              decoration: TextDecoration.underline),
             ),
             const SizedBox(height: 20),
 
@@ -44,14 +50,15 @@ class CommunityAccessScreen extends StatelessWidget {
               return Column(
                 children: [
                   _buildOption(
-                    "Interact and share ideas",
-                    "on your preferred topics",
+                    "Join & Interact",
+                    "with the community",
                     selected,
                     controller,
                   ),
+
                   _buildOption(
-                    "Only read content",
-                    "on your preferred topics",
+                    "Just Scroll",
+                    "to read the conversations",
                     selected,
                     controller,
                   ),
@@ -61,92 +68,75 @@ class CommunityAccessScreen extends StatelessWidget {
 
 
 
-            const SizedBox(height: 40),
-            SizedBox(
-              width: 290,
-              child: ElevatedButton(
-                onPressed: onFinish,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFEF2D56),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      topRight: Radius.circular(28),
-                      bottomLeft: Radius.circular(28),
-                      bottomRight: Radius.circular(8),
-                    ),
-                  ),
+            const SizedBox(height: 20),
+              GestureDetector(
+                onTap: onNext,
+                child: const Text(
+                  "Continue",
+                  style: TextStyle(color: Color(0xFFEF2D56),
+                      fontSize: 17,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Color(0xFFEF2D56)),
                 ),
-                child: const Text("Allow to Join",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500
-                  ),),
               ),
-            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildOption(String title, String description, String? selectedOption, HomeController controller) {
+  Widget _buildOption(
+      String title,
+      String description,
+      String? selectedOption,
+      HomeController controller,
+      ) {
     final bool selected = selectedOption == title;
-    final borderColor = const Color(0xFF172B75);
+
+    // Choose background based on title
+    final Color bgColor = title.contains("Join")
+        ? const Color(0xFFFFE6EB) // Light pink
+        : const Color(0xFFDFF0FF); // Light blue
 
     return GestureDetector(
       onTap: () => controller.updateCommunityAccess(title),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.all(14),
-        margin: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 16),
+        margin: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: borderColor,
-            width: selected ? 2.1 : 0.2,
-          ),
-          color: Colors.transparent,
+          color: bgColor,
+          borderRadius: BorderRadius.circular(20),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
+        child: Center(
+          child: RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+              style: const TextStyle(
+                fontSize: 15,
+                fontFamily: 'Inter',
+                color: Colors.black87,
+              ),
               children: [
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF172B75)
-                    ),
+                TextSpan(
+                  text: title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 15,
+                    color: Color(0xFF172B75),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Icon(
-                    selected ? Icons.check_circle_outline : Icons.circle_outlined,
-                    color: borderColor,
+                TextSpan(
+                  text: ' $description',
+                  style: const TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF172B75),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 8),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                description,
-                style: TextStyle(
-                  fontSize: 12.58,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF172B75),
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

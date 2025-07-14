@@ -8,6 +8,7 @@ import '../../../../../Utilities /constants /KImages.dart';
 import '../../../../routes/app_pages.dart';
 import '../controllers/subscription_controller.dart';
 import '../widgets/free_Trial_Toggle.dart';
+import '../widgets/monthlyPayment.dart';
 import '../widgets/oneTimeButton.dart';
 import '../widgets/plan_toggle.dart';
 
@@ -54,7 +55,9 @@ class SubscriptionView extends StatelessWidget {
                           : controller.userType.value == UserType.professional
                           ? '₹1086 yearly'
                           : '₹960 yearly',
-                      onTap: () => controller.selectPlan('yearly'),
+                      onTap: () { controller.selectPlan('yearly');
+                        Get.toNamed(Routes.PAYMENT_SCREEN);
+                      },
                     ),
                     const SizedBox(height: 12),
                     PlanToggleButton(
@@ -63,7 +66,22 @@ class SubscriptionView extends StatelessWidget {
                           : controller.userType.value == UserType.professional
                           ? '₹123 monthly'
                           : '₹96  monthly',
-                      onTap: () => controller.selectPlan('monthly'),
+                      onTap: () {
+                        controller.selectPlan('monthly');
+
+                        Get.dialog(
+                          SubscriptionDialog(
+                            onBack: () => Get.back(),
+                            onMonthly: () {
+                              Get.toNamed(Routes.PAYMENT_SCREEN);
+                            },
+                            onAnnual: () {
+                              Get.back();
+                              Get.toNamed(Routes.PAYMENT_SCREEN);
+                            },
+                          ),
+                        );
+                      },
                     ),
                   ],
                 )),

@@ -39,7 +39,7 @@ class PlanToggleButton extends StatelessWidget {
               ),
             ),
             Row(
-              children: const [
+              children: [
                 Text(
                   'proceed',
                   style: TextStyle(
@@ -47,8 +47,12 @@ class PlanToggleButton extends StatelessWidget {
                     fontWeight: FontWeight.w300,
                   ),
                 ),
-                SizedBox(width: 6),
-                Icon(Icons.arrow_forward, color: Color(0xFF172B75)),
+                const SizedBox(width: 6),
+                Container(
+                    width: 30,
+                    height: 30,
+                    color: Color(0xFF172B75),
+                    child: const Icon(Icons.arrow_forward, color: Colors.white)),
               ],
             ),
           ],

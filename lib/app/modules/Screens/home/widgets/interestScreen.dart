@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import '../../../../../Components /back_icon.dart';
 import 'communityAccess.dart';
 import 'difficultyScreen.dart';
 import 'notificationPopUp.dart';
@@ -20,12 +20,19 @@ class InterestsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 20),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: BackIcon(),
+                ),
 
-                Image.asset(
-                  'assets/images/Interest.png',
-                  height: 120,
-                  width: 146,
+                const SizedBox(height: 10),
+
+                const Center(
+                  child: Image(
+                    image: AssetImage('assets/images/Interest.png'),
+                    height: 120,
+                    width: 146,
+                  ),
                 ),
 
                 const SizedBox(height: 10),
@@ -38,24 +45,6 @@ class InterestsScreen extends StatelessWidget {
                     color: Color(0xFF0066FF),
                   ),
                   textAlign: TextAlign.center,
-                ),
-
-                const SizedBox(height: 10),
-
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: const TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "we'll build\n",
-                        style: TextStyle(fontSize: 20, color: Color(0xA6172B75)),
-                      ),
-                      TextSpan(
-                        text: "Your Personalised CONTENT STREAK\n",
-                        style: TextStyle(fontSize: 20, color: Color(0xFF00B8F0)),
-                      ),
-                    ],
-                  ),
                 ),
 
                 const SizedBox(height: 20),
@@ -87,7 +76,16 @@ class InterestsScreen extends StatelessWidget {
                   );
                 }),
 
-                const SizedBox(height: 40),
+            const Text(
+              "Choose min 1 or max all",
+              style: TextStyle(
+                color: Color(0xFF0066FF),
+                fontSize: 15,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+
+              const SizedBox(height: 20),
 
                 SizedBox(
                   width: double.infinity,
@@ -111,11 +109,11 @@ class InterestsScreen extends StatelessWidget {
                           onNext: () {
                             Get.back();
                             Get.dialog(
-                              NotificationScreen(
+                              CommunityAccessScreen(
                                 onNext: () {
                                   Get.back();
                                   Get.dialog(
-                                    CommunityAccessScreen(
+                                    NotificationScreen(
                                       onFinish: () {
                                         Get.back();
                                         Get.offAllNamed('/subscription');
@@ -131,23 +129,27 @@ class InterestsScreen extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFEF2D56),
+                      backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
+                        side: const BorderSide(
+                          color: Color(0xFFEF2D56),
+                          width: 0.2,
+                        ),
                       ),
                     ),
                     child: const Text(
                       "Continue",
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFEF2D56),
+                        fontSize: 25,
+                        fontWeight: FontWeight.w300,
                       ),
                     ),
                   ),
                 ),
 
-                const SizedBox(height: 20), // small breathing room at the bottom
+                const SizedBox(height: 20),
               ],
             ),
           ),

@@ -15,15 +15,23 @@ class CurvedTextField extends StatelessWidget {
     return ClipPath(
       clipper: SmoothConvexClipper(),
       child: Container(
-        height: MediaQuery.of(context).size.width * 0.14, // flatter look
+        height: MediaQuery.of(context).size.width * 0.14,
         color: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 14),
         child: Center(
           child: TextField(
             controller: controller,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Color(0xFF172B75)
+            ),
             decoration: InputDecoration(
               hintText: hint,
               border: InputBorder.none,
+              hintStyle: TextStyle(
+                color: Color(0xFF172B75),
+                fontSize: 16
+              )
             ),
           ),
         ),

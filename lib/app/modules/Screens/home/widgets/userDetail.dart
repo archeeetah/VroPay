@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vropay/app/modules/Screens/home/widgets/curvedTextField.dart';
+import '../../onBoarding/widgets/faq_help.dart';
 import '../controllers/home_controller.dart';
 
 class UserDetail extends GetView<HomeController> {
@@ -86,29 +87,21 @@ class UserDetail extends GetView<HomeController> {
                     child: const Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text("proceed", style: TextStyle(fontSize: 16)),
-                        SizedBox(width: 8),
-                        Icon(Icons.arrow_right_alt),
+                        Text("proceed", style: TextStyle(fontSize: 16, color: Colors.white)),
+                        SizedBox(width: 5),
+                        Icon(Icons.arrow_right_alt, color: Colors.white, size: 25,),
                       ],
                     ),
                   ),
                   const SizedBox(height: 12),
-                  const Text("Need help? [FAQs]",
-                      style: TextStyle(color: Colors.black54))
+                  const FaqHelpText()
                 ],
               ),
             ),
             const Spacer(),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 12),
-              child: Text(
-                'vropay',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF172B75),
-                ),
-              ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Image.asset( 'assets/images/vropayLogo.png', height: 40,),
             ),
           ],
         ),
@@ -129,14 +122,14 @@ class UserDetail extends GetView<HomeController> {
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
                 color:
-                    isSelected ? const Color(0xFF61A7FF) : Colors.transparent,
+                isSelected ? const Color(0xFF00B8F0) : Colors.transparent,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
                 gender,
                 style: TextStyle(
-                  color: isSelected ? Colors.white : Colors.blueGrey,
-                  fontWeight: FontWeight.w500,
+                  color: isSelected ? Colors.white : Color(0xFF00B8F0),
+                  fontWeight: isSelected ? FontWeight.bold : FontWeight.w300,
                 ),
               ),
             ),
@@ -157,45 +150,98 @@ class UserDetail extends GetView<HomeController> {
     ];
 
     return Obx(() {
-      return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
-        decoration: BoxDecoration(
-          color: const Color(0xFFB8C9DA),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton<String>(
-            isExpanded: true,
-            value: controller.selectedRole.value.isEmpty
-                ? null
-                : controller.selectedRole.value,
-            hint: const Text("you’re a"),
-            icon: const Icon(Icons.keyboard_arrow_down),
-            items: roles.map((role) {
-              return DropdownMenuItem<String>(
-                value: role['value'],
-                child: Row(
-                  children: [
-                    Image.asset(
-                      role['icon']!,
-                      width: 24,
-                      height: 24,
+      final selected = controller.selectedRole.value;
+
+      return SizedBox(
+        height: 60,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.asset(
+              'assets/vectors/profession_dropdown.png',
+              fit: BoxFit.fill,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  value: selected.isEmpty ? null : selected,
+                  icon: const Icon(Icons.keyboard_arrow_down, color: Color(0xFF1C1C4D)),
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Color(0xFF1C1C4D),
+                  ),
+                  alignment: Alignment.center,
+                  dropdownColor: const Color(0xFFDEEAF1), // fallback dropdown background
+                  hint: const Center(
+                    child: Text(
+                      "you’re a",
+                      style: TextStyle(color: Color(0xFF172B75)),
                     ),
-                    const SizedBox(width: 10),
-                    Flexible(
-                      child: Text(
-                        role['value']!,
-                        overflow: TextOverflow.ellipsis,
+                  ),
+                  selectedItemBuilder: (context) {
+                    return roles.map((role) {
+                      return Center(
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Image.asset(
+                              role['icon']!,
+                              width: 24,
+                              height: 24,
+                            ),
+                            const SizedBox(width: 8),
+                            Text(role['value']!),
+                          ],
+                        ),
+                      );
+                    }).toList();
+                  },
+                  items: roles.map((role) {
+                    final isSelected = role['value'] == selected;
+
+                    return DropdownMenuItem<String>(
+                      value: role['value'],
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: isSelected
+                              ? const Color(0xFFE5EBFF) // highlighted background for selected
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              role['icon']!,
+                              width: 24,
+                              height: 24,
+                            ),
+                            const SizedBox(width: 10),
+                            Flexible(
+                              child: Text(
+                                role['value']!,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    controller.selectedRole.value = value ?? '';
+                  },
                 ),
-              );
-            }).toList(),
-            onChanged: (value) => controller.selectedRole.value = value ?? '',
-          ),
+              ),
+            ),
+          ],
         ),
       );
     });
   }
+
 }

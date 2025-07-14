@@ -9,13 +9,14 @@ class FaqHelpText extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: 'Need help? ',
-        style: const TextStyle(color: Colors.grey, fontSize: 10),
+        style: const TextStyle(color: Colors.grey, fontSize: 14),
         children: [
           TextSpan(
             text: '[FAQs]',
             style: const TextStyle(
               color: Color(0xFF45548F),
               fontWeight: FontWeight.w500,
+              fontSize: 16
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
