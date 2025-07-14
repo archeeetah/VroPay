@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
         return IndexedStack(
           index: controller.currentIndex.value,
           children: [
-            const UserDetails(),
+            const UserDetail(),
             InterestsScreen(),
           ],
         );

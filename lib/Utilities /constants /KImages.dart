@@ -19,5 +19,5 @@ class KImages {
   static const businessOwnerIcon = 'assets/icons/businessOwner.png';
 
   static const difficultyImage = 'assets/images/difficultyScreen.png';
-  static const subscriptionImage = 'assets/images/subscriptionBackground.png';
+  static const subscriptionImage = 'assets/images/SubscriptionImage.png';
 }

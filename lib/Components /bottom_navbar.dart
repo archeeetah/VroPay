@@ -2,46 +2,52 @@ import 'package:flutter/material.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
-  final Function(int) onTap;
+  final Function(int)? onTap;
 
   const CustomBottomNavBar({
     Key? key,
     required this.currentIndex,
-    required this.onTap,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: currentIndex,
-      onTap: onTap,
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.blue,
-      unselectedItemColor: Colors.grey,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.chat_bubble_outline),
-          label: 'Chat',
+    final List<String> defaultIcons = const [
+      'assets/icons/home.png',
+      'assets/icons/profile.png',
+      'assets/icons/giftIcon.png',
+      'assets/icons/bagIcon.png',
+      'assets/icons/bellIcon.png',
+    ];
+
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 8,
+            offset: Offset(0, -2),
+          ),
+        ],
+      ),
+      child: SafeArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: List.generate(defaultIcons.length, (index) {
+            final isSelected = index == currentIndex;
+            return IconButton(
+              icon: Image.asset(
+                defaultIcons[index],
+                color: isSelected ? Colors.blue : Colors.blueGrey,
+                width: 20,
+                height: 24,
+              ),
+              onPressed: () => onTap!(index),
+            );
+          }),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.library_books),
-          label: 'Library',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.rocket_launch),
-          label: 'Launch Pad',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.feedback_outlined),
-          label: 'Feedback',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
-          label: 'Home',
-        ),
-      ],
+      ),
     );
   }
 }

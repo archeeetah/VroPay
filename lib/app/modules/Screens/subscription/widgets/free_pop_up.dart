@@ -15,7 +15,7 @@ class FreePopUp extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset('assets/images/PopUpSubscription.png', height: 112,width: 120,),
+            Image.asset('assets/images/PoPUpSubscription.png', height: 112,width: 120,),
             const SizedBox(height: 10,),
             const Text(
               'really?',

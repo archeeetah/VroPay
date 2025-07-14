@@ -13,8 +13,11 @@ class FreeTrialToggle extends StatelessWidget {
       width: 311,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       decoration: BoxDecoration(
-        color: const Color(0xFF172B75),
+        color:  Colors.white,
         borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: Color(0xFF172B75)
+        )
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,7 +29,7 @@ class FreeTrialToggle extends StatelessWidget {
               Text(
                 'wanna try for free?',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Color(0xFF172B75),
                   fontSize: 18, // closer to visual style
                   fontWeight: FontWeight.w500,
                 ),
@@ -34,9 +37,9 @@ class FreeTrialToggle extends StatelessWidget {
               Text(
                 'For one month only',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Color(0xFF172B75),
                   fontSize: 12,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w200,
                 ),
               ),
             ],
@@ -48,7 +51,7 @@ class FreeTrialToggle extends StatelessWidget {
               height: 34,
               padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
-                color: isEnabled? Colors.grey: Colors.white,
+                color: isEnabled? Colors.grey: Color(0xFF172B75),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Align(
@@ -57,7 +60,7 @@ class FreeTrialToggle extends StatelessWidget {
                   width: 26,
                   height: 26,
                   decoration: const BoxDecoration(
-                    color: Color(0xFFE8435C),
+                    color: Colors.white,
                     shape: BoxShape.circle,
                   ),
                 ),

@@ -10,6 +10,11 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const SUBSCRIPTION = _Paths.SUBSCRIPTION;
   static const NOTIFICATIONS = _Paths.NOTIFICATIONS;
+  static const TRACK_SELECTION = _Paths.TRACK_SELECTION;
+  static const KNOWLEDGE_CENTER_SCREEN = _Paths.KNOWLEDGE_CENTER_SCREEN;
+  static const COMMUNITY_FORUM = _Paths.COMMUNITY_FORUM;
+  static const PAYMENT_SCREEN = _Paths.PAYMENT_SCREEN;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -21,4 +26,9 @@ abstract class _Paths {
   static const HOME = '/home';
   static const SUBSCRIPTION = '/subscription';
   static const NOTIFICATIONS = '/notifications';
+  static const TRACK_SELECTION = '/track-selection';
+  static const KNOWLEDGE_CENTER_SCREEN = '/knowledge-center-screen';
+  static const COMMUNITY_FORUM = '/community-forum';
+  static const PAYMENT_SCREEN = '/payment-screen';
+  static const PROFILE = '/profile';
 }

@@ -7,6 +7,7 @@ import '../../../../../Components /constant_buttons.dart';
 import '../../../../../Utilities /constants /Colors.dart';
 import '../../../../../Utilities /constants /KImages.dart';
 import '../controllers/on_boarding_controller.dart';
+import '../widgets/faq_help.dart';
 
 class OnBoardingView extends StatefulWidget {
   @override
@@ -48,17 +49,23 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                         color: KConstColors.onBoardingText,
                       ),
                       children: [
-                        const TextSpan(text: "Smart tools\n"),
-                        const TextSpan(text: "real-time insights "),
+                        const TextSpan(text: "Smart tools\n", style: TextStyle(
+                            fontWeight: FontWeight.bold
+                        )),
+                        const TextSpan(text: "Real-time insights\n ",style: TextStyle(
+                            fontWeight: FontWeight.bold
+                        )),
                         TextSpan(
-                          text: "&",
+                          text: "&\n",
                           style: TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.w500,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300,
                             color: Color(0xFF0066FF),
                           ),
                         ),
-                        const TextSpan(text: " limitless possibilities"),
+                        const TextSpan(text: " Limitless possibilities", style: TextStyle(
+                          fontWeight: FontWeight.bold
+                        )),
                       ],
                     ),
                   ),
@@ -69,7 +76,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       color: KConstColors.onBoardingSubHeading,
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 20),
+                  FaqHelpText(),
+                  const SizedBox(height: 40),
                   // Progress Indicator
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

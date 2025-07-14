@@ -4,6 +4,7 @@ import 'package:vropay/Components%20/constant_buttons.dart';
 import 'package:vropay/Utilities%20/constants%20/KImages.dart';
 
 import '../../../../../Utilities /constants /Colors.dart';
+import '../../onBoarding/widgets/faq_help.dart';
 import '../controllers/sign_up_controller.dart';
 import '../widgets/socialButtons.dart';
 
@@ -138,7 +139,8 @@ class SignUpView extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30,),
-
+              FaqHelpText(),
+              SizedBox(height: 30,),
               // Page Indicator
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

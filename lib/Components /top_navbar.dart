@@ -1,63 +1,94 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class NotifTopBar extends StatelessWidget {
+class CustomTopNavBar extends StatelessWidget {
+  final int? selectedIndex;
   final Function(int)? onItemTap;
-  final int selectedIndex;
 
-  const NotifTopBar({
-    super.key,
+  const CustomTopNavBar({
+    Key? key,
+    this.selectedIndex,
     this.onItemTap,
-    required this.selectedIndex,
-  });
-
-  final List<_NavItem> _items = const [
-    _NavItem(icon: Icons.cloud, label: 'Chat'),
-    _NavItem(icon: Icons.library_books, label: 'Library'),
-    _NavItem(icon: Icons.storefront, label: 'Launch Pad'),
-    _NavItem(icon: Icons.edit, label: 'Feedback'),
-  ];
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: List.generate(_items.length, (index) {
-          final item = _items[index];
-          final isSelected = index == selectedIndex;
 
-          return GestureDetector(
-            onTap: () => onItemTap?.call(index),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  item.icon,
-                  size: 30,
-                  color: isSelected ? Colors.blue : Colors.grey,
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  item.label,
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: isSelected ? Colors.blue : Colors.black54,
-                  ),
-                )
-              ],
+    final List<_NavItem> _items = const [
+      _NavItem(imagePath: 'assets/icons/chat.png', label: 'Chat'),
+      _NavItem(imagePath: 'assets/icons/library.png', label: 'Library'),
+      _NavItem(imagePath: 'assets/icons/launchPad.png', label: 'Launch Pad'),
+      _NavItem(imagePath: 'assets/icons/feedback.png', label: 'Feedback'),
+    ];
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 32, left: 5, right: 5, bottom: 8),
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: GestureDetector(
+              onTap: () => Get.back(),
+              child: const Icon(Icons.arrow_back_ios_new_outlined, size: 24, color: Color(0xFFFFA000)),
             ),
-          );
-        }),
+          ),
+          const SizedBox(width: 2),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: List.generate(_items.length, (index) {
+                final item = _items[index];
+                final isSelected = index == selectedIndex;
+
+                return GestureDetector(
+                  onTap: () => onItemTap?.call(index),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: isSelected ? Color(0xFF006DF4) : Colors.transparent,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          padding: const EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            color: isSelected ? Color(0xFF006DF4) : Colors.transparent,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Image.asset(
+                            item.imagePath,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          item.label,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: isSelected ? Colors.white : Color(0xFF006DF4),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
 class _NavItem {
-  final IconData icon;
+  final String imagePath;
   final String label;
 
-  const _NavItem({required this.icon, required this.label});
+  const _NavItem({required this.imagePath, required this.label});
 }

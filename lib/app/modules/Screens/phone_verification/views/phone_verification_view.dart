@@ -4,6 +4,7 @@ import 'package:vropay/Components%20/constant_buttons.dart';
 import 'package:vropay/Utilities%20/constants%20/KImages.dart';
 import '../../../../../Utilities /constants /Colors.dart';
 import '../../OtpScreen/views/otp_screen_view.dart';
+import '../../onBoarding/widgets/faq_help.dart';
 import '../controllers/phone_verification_controller.dart';
 
 class PhoneVerificationView extends GetView<PhoneVerificationController> {
@@ -62,6 +63,32 @@ class PhoneVerificationView extends GetView<PhoneVerificationController> {
               Text("Enter your mobile number to send OTP",
                   style: TextStyle(fontSize: 12, color: Color(0xFFC1C0C0))),
               SizedBox(height: 100),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text.rich(
+                  TextSpan(
+                    text: "By continuing, you agree to VRopay’s ",
+                    style: const TextStyle(fontSize: 12, color: Colors.grey),
+                    children: [
+                      TextSpan(
+                        text: "Terms of Service",
+                        style: const TextStyle(
+                            color: Color(0xFF45548F)),
+                      ),
+                      const TextSpan(text: " and "),
+                      TextSpan(
+                        text: "Privacy Policy",
+                        style: const TextStyle(
+                            color: Color(0xFF45548F)),
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(height: 10,),
+              FaqHelpText(),
+              SizedBox(height: 30,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

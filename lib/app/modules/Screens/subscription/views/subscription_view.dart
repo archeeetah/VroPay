@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:vropay/app/modules/Screens/payment_screen/views/payment_screen_view.dart';
 
 import '../../../../../Utilities /constants /KImages.dart';
+import '../../../../routes/app_pages.dart';
 import '../controllers/subscription_controller.dart';
 import '../widgets/free_Trial_Toggle.dart';
 import '../widgets/oneTimeButton.dart';
@@ -22,20 +24,25 @@ class SubscriptionView extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const Text(
-                  'Get access to our programs',
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF172B75),
-                  ),
-                  textAlign: TextAlign.center,
+            Row(
+              children: [
+                IconButton(
+                icon: const Icon(Icons.arrow_back_ios_new_outlined, color: Colors.orange),
+                onPressed: () {
+                  Get.back();
+                },
                 ),
-                const SizedBox(height: 20),
-                Obx(() => FreeTrialToggle(
-                  isEnabled: controller.enableTrial.value,
-                  onToggle: controller.toggleTrial,
-                )),
+                          const Text(
+                      ' Get access to\nour programs',
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w200,
+                        color: Color(0xFF172B75),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+              ],
+            ),
                 const SizedBox(height: 16),
                 Image.asset(KImages.subscriptionImage),
                 const SizedBox(height: 20),
@@ -43,33 +50,34 @@ class SubscriptionView extends StatelessWidget {
                   children: [
                     PlanToggleButton(
                       label: controller.userType.value == UserType.business
-                          ? '₹1230 - Per year'
+                          ? '₹1230 yearly'
                           : controller.userType.value == UserType.professional
-                          ? '₹1086 - Per year'
-                          : '₹960 - Per year',
-                      value: 'yearly',
-                      selectedValue: controller.selectedPlan.value,
+                          ? '₹1086 yearly'
+                          : '₹960 yearly',
                       onTap: () => controller.selectPlan('yearly'),
                     ),
                     const SizedBox(height: 12),
                     PlanToggleButton(
                       label: controller.userType.value == UserType.business
-                          ? '₹141 - Per month'
+                          ? '₹141 monthly'
                           : controller.userType.value == UserType.professional
-                          ? '₹123 - Per month'
-                          : '₹96 - Per month',
-                      value: 'monthly',
-                      selectedValue: controller.selectedPlan.value,
+                          ? '₹123 monthly'
+                          : '₹96  monthly',
                       onTap: () => controller.selectPlan('monthly'),
                     ),
                   ],
                 )),
-                const SizedBox(height: 50),
+                const SizedBox(height: 20),
+                Obx(() => FreeTrialToggle(
+                  isEnabled: controller.enableTrial.value,
+                  onToggle: controller.toggleTrial,
+                )),
+                SizedBox(height: 50),
                 OneTimeOfferButton(
                   onTap: () {
-                    Get.toNamed('/payment');
-                    print("One-time offer tapped");
-                  },
+                    Get.toNamed(Routes.PAYMENT_SCREEN
+                    );
+                  }
                 ),
                 const SizedBox(height: 10),
 
@@ -92,6 +100,12 @@ class SubscriptionView extends StatelessWidget {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                   children: [
+                    TextSpan(
+                      text: 'terms & conditions\n',
+                      style: TextStyle(
+                        fontSize: 12, color: Color(0xFFEF2D56)
+                      ),
+                    ),
                     TextSpan(
                       text: 'You can cancel autopay for your monthly subscription anytime\n',
                       style: TextStyle(

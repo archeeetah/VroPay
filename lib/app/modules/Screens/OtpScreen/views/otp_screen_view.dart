@@ -4,6 +4,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:vropay/Utilities%20/constants%20/Colors.dart';
 import 'package:vropay/Utilities%20/constants%20/KImages.dart';
 import '../../../../../Components /constant_buttons.dart';
+import '../../onBoarding/widgets/faq_help.dart';
 import '../controllers/otp_screen_controller.dart';
 
 class OtpScreenView extends StatelessWidget {
@@ -86,13 +87,39 @@ class OtpScreenView extends StatelessWidget {
                       style: TextStyle(
                         color: Color(0xFF4263E0),
                         fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline
                       ),
                     ),
                   ) ,
                 ),
 
                 SizedBox(height: 100),
-
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text.rich(
+                    TextSpan(
+                      text: "By continuing, you agree to VRopay’s ",
+                      style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      children: [
+                        TextSpan(
+                          text: "Terms of Service",
+                          style: const TextStyle(
+                              color: Color(0xFF45548F)),
+                        ),
+                        const TextSpan(text: " and "),
+                        TextSpan(
+                          text: "Privacy Policy",
+                          style: const TextStyle(
+                              color: Color(0xFF45548F)),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(height: 10,),
+                FaqHelpText(),
+                SizedBox(height: 30,),
                 // Progress Indicator
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
