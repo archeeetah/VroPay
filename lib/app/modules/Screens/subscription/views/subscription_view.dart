@@ -102,7 +102,7 @@ class SubscriptionView extends StatelessWidget {
                 // Align widget to ensure full width
                 Align(
                   alignment: Alignment.center,
-                  child: Container(
+                  child: SizedBox(
                     width: double.infinity,
                     child: const Divider(
                       color: Colors.grey,

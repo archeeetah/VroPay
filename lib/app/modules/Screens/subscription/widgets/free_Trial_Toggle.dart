@@ -30,7 +30,7 @@ class FreeTrialToggle extends StatelessWidget {
                 'wanna try for free?',
                 style: TextStyle(
                   color: Color(0xFF172B75),
-                  fontSize: 18, // closer to visual style
+                  fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
               ),

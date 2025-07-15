@@ -15,6 +15,12 @@ abstract class Routes {
   static const COMMUNITY_FORUM = _Paths.COMMUNITY_FORUM;
   static const PAYMENT_SCREEN = _Paths.PAYMENT_SCREEN;
   static const PROFILE = _Paths.PROFILE;
+  static const DASHBOARD = _Paths.DASHBOARD;
+  static const DEACTIVATE_SCREEN = _Paths.DEACTIVATE_SCREEN;
+  static const firstTimeSplash = _Paths.firstTimeSplash;
+  static const welcomeSplash = _Paths.welcomeSplash;
+
+
 }
 
 abstract class _Paths {
@@ -31,4 +37,8 @@ abstract class _Paths {
   static const COMMUNITY_FORUM = '/community-forum';
   static const PAYMENT_SCREEN = '/payment-screen';
   static const PROFILE = '/profile';
+  static const DASHBOARD = '/dashboard';
+  static const DEACTIVATE_SCREEN = '/deactivate-screen';
+  static const firstTimeSplash = '/first-time-splash';
+  static const welcomeSplash = '/welcome-splash';
 }

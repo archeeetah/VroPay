@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vropay/Components%20/back_icon.dart';
 
 class CustomTopNavBar extends StatelessWidget {
   final int? selectedIndex;
@@ -29,7 +30,7 @@ class CustomTopNavBar extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8.0),
             child: GestureDetector(
               onTap: () => Get.back(),
-              child: const Icon(Icons.arrow_back_ios_new_outlined, size: 24, color: Color(0xFFFFA000)),
+              child: BackIcon(),
             ),
           ),
           const SizedBox(width: 2),

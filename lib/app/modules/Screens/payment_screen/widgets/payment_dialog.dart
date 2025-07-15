@@ -25,7 +25,7 @@ class PaymentMethodDialog extends StatelessWidget {
             children: [
               IconButton(
                 icon: BackIcon(),
-                onPressed: () => Get.toNamed(Routes.SUBSCRIPTION),
+                onPressed: () => Get.offAllNamed(Routes.SUBSCRIPTION),
               ),
               const Text(
                 " Select Payment Method",

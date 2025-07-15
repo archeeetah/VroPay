@@ -1,10 +1,14 @@
 import 'package:get/get.dart';
+import 'package:vropay/app/modules/Screens/deactivate_screen/bindings/deactivate_screen_binding.dart';
+import 'package:vropay/app/modules/Screens/deactivate_screen/views/deactivate_screen_view.dart';
 
 import '../modules/Screens/OtpScreen/bindings/otp_screen_binding.dart';
 import '../modules/Screens/OtpScreen/views/otp_screen_view.dart';
 import '../modules/Screens/TrialTransitionView/trial_transition_view.dart';
 import '../modules/Screens/community_forum/bindings/community_forum_binding.dart';
 import '../modules/Screens/community_forum/views/community_forum_view.dart';
+import '../modules/Screens/dashboard/bindings/dashboard_binding.dart';
+import '../modules/Screens/dashboard/views/dashboard_view.dart';
 import '../modules/Screens/home/bindings/home_binding.dart';
 import '../modules/Screens/home/views/home_view.dart';
 import '../modules/Screens/knowledge_center_screen/bindings/knowledge_center_screen_binding.dart';
@@ -25,13 +29,15 @@ import '../modules/Screens/subscription/bindings/subscription_binding.dart';
 import '../modules/Screens/subscription/views/subscription_view.dart';
 import '../modules/Screens/track_selection/bindings/track_selection_binding.dart';
 import '../modules/Screens/track_selection/views/track_selection_view.dart';
+import '../modules/common/firstTimeSplash.dart';
+import '../modules/common/welcomeBackSplash.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SUBSCRIPTION;
+  static const INITIAL = Routes.ON_BOARDING;
 
   static final routes = [
     GetPage(
@@ -92,8 +98,26 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROFILE,
-      page: () =>  ProfileView(),
+      page: () => ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.DASHBOARD,
+      page: () => const DashboardView(),
+      binding: DashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.DEACTIVATE_SCREEN,
+      page: () =>  DeactivateScreenView(),
+      binding: DeactivateScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.firstTimeSplash,
+      page: () => FirstTimeSplashScreen(),
+    ),
+    GetPage(
+      name: _Paths.welcomeSplash,
+      page: () => WelcomeBackSplashScreen(),
     ),
   ];
 }

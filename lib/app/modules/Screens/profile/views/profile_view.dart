@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vropay/Components%20/top_navbar.dart';
+import 'package:vropay/app/modules/Screens/profile/widgets/sign_out.dart';
 import '../../../../../Components /bottom_navbar.dart';
+import '../../../../routes/app_pages.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends StatelessWidget {
@@ -33,11 +35,45 @@ class ProfileView extends StatelessWidget {
 
               _SubscriptionBanner(),
               const SizedBox(height: 10),
+
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF4D84F7)
+              ),
+                      onPressed: () {
+                        Get.dialog(SignOutDialog());
+                      },
+                      child: Text('SIGN OUT?',
+                      style: TextStyle(
+                        color: Colors.white
+                      ),),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF4D84F7)
+                      ),
+                      onPressed: () {
+                        Get.toNamed(Routes.DEACTIVATE_SCREEN);
+                      },
+                      child: Text('DEACTIVATE?', style:
+                        TextStyle(
+                          color: Colors.white
+                        ),),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ),
             ],
           ),
         ),
       ),
-
       bottomNavigationBar: CustomBottomNavBar(currentIndex: 1,),
     );
   }
@@ -315,7 +351,6 @@ class _PreferencesSection extends StatelessWidget {
             ],
           ),
         ),
-        // Blue capsule at top center
         Positioned(
           top: 20,
           left: 0,

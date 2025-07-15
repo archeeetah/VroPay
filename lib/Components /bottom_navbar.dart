@@ -39,7 +39,7 @@ class CustomBottomNavBar extends StatelessWidget {
             return IconButton(
               icon: Image.asset(
                 defaultIcons[index],
-                color: isSelected ? Colors.blue : Colors.blueGrey,
+                color: isSelected ? Color(0xFF00B8F0) : Color(0xFF006DF4),
                 width: 20,
                 height: 24,
               ),
