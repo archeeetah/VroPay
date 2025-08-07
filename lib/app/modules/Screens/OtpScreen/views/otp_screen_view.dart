@@ -58,24 +58,30 @@ class OtpScreenView extends StatelessWidget {
 
                 SizedBox(height: 10),
 
-                // Show Email or Phone based on OTP type
+                // Show Email or Phone based on OTP type (all in one line)
                 Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child:Text("Enter 5 digit OTP sent to",
-                      style: TextStyle(color: Color(0xFF454545), fontSize: 14),
-                    ),
+                    child: Obx(() => Text.rich(
+                      TextSpan(
+                        text: "Enter 5 digit OTP sent to ",
+                        style: TextStyle(color: Color(0xFF454545), fontSize: 14),
+                        children: [
+                          TextSpan(
+                            text: _otpController.isPhoneOtp.value
+                                ? _otpController.userPhone.value // Displays phone if OTP is for phone
+                                : _otpController.userEmail.value, // Displays email if OTP is for email
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF454545),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
                   ),
                 ),
-
-                Obx(() => Text(
-                  _otpController.isPhoneOtp.value
-                      ? _otpController.userPhone.value // Displays phone if OTP is for phone
-                      : _otpController.userEmail.value, // Displays email if OTP is for email
-                  style: TextStyle(fontWeight: FontWeight.bold,
-                  color: Color(0xFF454545)),
-                )),
 
                 // Resend OTP
                 Align(
@@ -98,7 +104,7 @@ class OtpScreenView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Text.rich(
                     TextSpan(
-                      text: "By continuing, you agree to VRopay’s ",
+                      text: "By continuing, you agree to VRopay's ",
                       style: const TextStyle(fontSize: 12, color: Colors.grey),
                       children: [
                         TextSpan(

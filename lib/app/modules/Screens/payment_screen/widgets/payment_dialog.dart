@@ -23,10 +23,28 @@ class PaymentMethodDialog extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              IconButton(
-                icon: BackIcon(),
-                onPressed: () => Get.offAllNamed(Routes.SUBSCRIPTION),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: IconButton(
+                      icon: BackIcon(),
+                      onPressed: () {
+                        Navigator.of(context).pop('goToSubscription');
+                      },
+                    ),
+                  ),
+                  Image.asset('assets/icons/img.png',
+                  height: 20,),
+                  SizedBox(width: 5,),
+                  Text('100% Secure & Seamless',
+                    style: TextStyle(
+                      color: Color(0xFF08CC53)
+                    ),
+                  )
+                ],
               ),
+              
               const Text(
                 " Select Payment Method",
                 style: TextStyle(color: Color(0xFF333333), fontSize: 16),
@@ -87,7 +105,7 @@ class PaymentMethodDialog extends StatelessWidget {
         ),
         trailing: Icon(
           selected ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-          color: const Color(0xFFFFA000),
+          color: Colors.red,
         ),
       );
     });

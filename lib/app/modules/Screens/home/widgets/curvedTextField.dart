@@ -17,7 +17,7 @@ class CurvedTextField extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.width * 0.14,
         color: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 14),
+        // padding: const EdgeInsets.symmetric(horizontal: 5),
         child: Center(
           child: TextField(
             controller: controller,
@@ -58,7 +58,7 @@ class SmoothConvexClipper extends CustomClipper<Path> {
       size.width * 0.5, curveHeight,
     );
     path.quadraticBezierTo(
-      size.width * 0.67, curveHeight,
+      size.width * 0.60, curveHeight,
       size.width - cornerRadius, 0,
     );
 
@@ -76,11 +76,11 @@ class SmoothConvexClipper extends CustomClipper<Path> {
 
     // Bottom convex curve
     path.quadraticBezierTo(
-      size.width * 0.67, size.height - curveHeight,
+      size.width * 0.50, size.height - curveHeight,
       size.width * 0.5, size.height - curveHeight,
     );
     path.quadraticBezierTo(
-      size.width * 0.33, size.height - curveHeight,
+      size.width * 0.25, size.height - curveHeight,
       cornerRadius, size.height,
     );
 

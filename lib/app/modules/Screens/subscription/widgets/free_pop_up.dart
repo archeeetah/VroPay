@@ -23,37 +23,31 @@ class FreePopUp extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Align(alignment: Alignment.centerLeft, child: BackIcon()),
-            Image.asset('assets/images/PoPUpSubscription.png', height: 112, width: 120),
+            Image.asset('assets/images/PoPUpSubscription.png', height: 257, width: 198),
             const SizedBox(height: 10),
-            const Text(
+            Text(
               'really?',
               style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.w600,
-                color: Color(0xFF172B75),
+                fontFamily: 'Pacifico',
+                fontSize: 25,
+                fontWeight: FontWeight.w500,
+                color: const Color(0xFF006DF4),
               ),
             ),
             const SizedBox(height: 10),
-            RichText(
-              textAlign: TextAlign.center,
-              text: const TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'only 1,000 spots..\n',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
-                  ),
-                  TextSpan(
-                    text: '₹ 1122 to unlock it all\ndo you want to miss?',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF006DF4),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+                    Text( '₹ 1122 to unlock it all\ndo you want to miss?',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey,
+                      ),),
             const SizedBox(height: 20),
+            Text('only 1,000 spots..',
+            style: TextStyle(
+              fontSize: 14,
+              color: Color(0xFF172B75)
+            ),),
+            const SizedBox(height: 10),
             SizedBox(
               width: 250,
               child: ElevatedButton(
@@ -70,11 +64,11 @@ class FreePopUp extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  "Yes, I want to be in",
+                  "yupp I'm in..",
                   style: TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
                   ),
                 ),
               ),

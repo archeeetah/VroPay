@@ -19,7 +19,7 @@ class UserDetail extends GetView<HomeController> {
               color: Colors.white,
               width: double.infinity,
               child: const Text(
-                "Welcome to\nVroPay 💙",
+                "Welcome to\nVroPay 🩵",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
@@ -42,25 +42,36 @@ class UserDetail extends GetView<HomeController> {
               ),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SizedBox(
-                          width: 90,
-                          child: CurvedTextField(
-                            controller: controller.firstNameController,
-                            hint: 'first name',
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.34,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 30),
+                              child: CurvedTextField(
+                                controller: controller.firstNameController,
+                                hint: 'first name',
+                              ),
+                            ),
                           ),
-                        ),
+                          const SizedBox(width: 12),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.34,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: CurvedTextField(
+                                controller: controller.lastNameController,
+                                hint: 'last name',
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: CurvedTextField(
-                          controller: controller.lastNameController,
-                          hint: 'last name',
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                   const SizedBox(height: 12),
                   _genderSelector(),
@@ -79,7 +90,7 @@ class UserDetail extends GetView<HomeController> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF172B75),
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 14),
+                          horizontal: 32, vertical: 8),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -110,31 +121,33 @@ class UserDetail extends GetView<HomeController> {
   }
 
   Widget _genderSelector() {
-    final genders = ['female', 'Male', "don't want to disclose"];
+    final genders = ['female', 'Male', "don't want\nto disclose"];
     return Obx(() {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: genders.map((gender) {
-          final isSelected = gender == controller.selectedLevel.value;
-          return GestureDetector(
-            onTap: () => controller.selectLevel(gender),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              decoration: BoxDecoration(
-                color:
-                isSelected ? const Color(0xFF00B8F0) : Colors.transparent,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Text(
-                gender,
-                style: TextStyle(
-                  color: isSelected ? Colors.white : Color(0xFF00B8F0),
-                  fontWeight: isSelected ? FontWeight.bold : FontWeight.w300,
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 60),
+        child: Row(
+          children: genders.map((gender) {
+            final isSelected = gender == controller.selectedLevel.value;
+            return GestureDetector(
+              onTap: () => controller.selectLevel(gender),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                decoration: BoxDecoration(
+                  color:
+                  isSelected ? const Color(0xFF00B8F0) : Colors.transparent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  gender,
+                  style: TextStyle(
+                    color: isSelected ? Colors.white : Color(0xFF00B8F0),
+                    fontWeight: isSelected ? FontWeight.bold : FontWeight.w300,
+                  ),
                 ),
               ),
-            ),
-          );
-        }).toList(),
+            );
+          }).toList(),
+        ),
       );
     });
   }

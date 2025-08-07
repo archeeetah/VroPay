@@ -51,7 +51,6 @@ class HomeController extends GetxController {
     selectedCommunityAccess.value = option;
   }
 
-  /// ✅ Add this if you want to reset form values entirely
   void resetForm() {
     firstNameController.clear();
     lastNameController.clear();
@@ -66,19 +65,17 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     interests.value = [
-      "Manifestation", "IPOs", "AI Tools",
-      "Finlearn", "Law", "Health",
+      "Quantum Leap", "Entrepreneurship", "AI Tools",
+      "Finance", "Law", "Health",
       "Stocks", "Technology", "Books",
       "Podcast", "Art", "Funding",
-      "History", "News", "Investment",
-      "Fun test", "Visionaries", "Hustle",
+      "History", "News", "Investing", "Visionaries", "Hustle",
       "Vocab", "Spirituality", "Vedi wise",
       "Travel", "USA", "Astrology",
-      "Geeta Gyan", "Music", "Startups",
+      "Geeta Gyan", "Music", "Startup",
     ];
   }
 
-  /// ✅ Properly dispose of controllers
   @override
   void onClose() {
     firstNameController.dispose();

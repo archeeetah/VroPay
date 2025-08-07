@@ -39,7 +39,7 @@ class OneTimeOfferButton extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 2),
+                    SizedBox(height: 1),
                     Text(
                       'for next 5 years',
                       style: TextStyle(

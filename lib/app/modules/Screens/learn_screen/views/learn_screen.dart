@@ -120,7 +120,7 @@ class LearnScreenView extends GetView<LearnScreenController> {
 
                 // Info Cards
                 _infoCard(
-                  "Knowledge\n Center",
+                  "Knowledge\n    Center",
                   "Articles, blogs, explainers &\nvisuals on tech, money,\nmindset & more.",
                   Color(0xFFE93A47),
                   "learn",
@@ -132,7 +132,7 @@ class LearnScreenView extends GetView<LearnScreenController> {
                 SizedBox(height: 40),
 
                 _infoCard(
-                  "Community\n Forum",
+                  "Community\n     Forum",
                   "Talk with the community\nfor real questions, real\nopinions, zero fluff.",
                   Color(0xFF3E9292),
                   "engage",
@@ -142,19 +142,6 @@ class LearnScreenView extends GetView<LearnScreenController> {
                       () => Get.toNamed(Routes.COMMUNITY_FORUM),
                 ),
                 SizedBox(height: 40),
-
-                _infoCard(
-                  "StartUp Tuition",
-                  "Turn your ideas into action with simplified startup knowledge",
-                  Color(0xFFEF9736),
-                  "prepare",
-                  'assets/images/startUp.png',
-                  133,
-                  107,
-                      () => Get.toNamed(Routes.TRACK_SELECTION),
-                ),
-                SizedBox(height: 40),
-
                 // Bottom Image
                 Image.asset(
                   'assets/images/targetImage.png',
@@ -194,16 +181,18 @@ class LearnScreenView extends GetView<LearnScreenController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.white,
-                    height: 1.2,
+                Center(
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.white,
+                      height: 1.2,
+                    ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
                 Text(
                   subtitle,
                   style: TextStyle(
@@ -212,47 +201,51 @@ class LearnScreenView extends GetView<LearnScreenController> {
                     height: 1.4,
                   ),
                 ),
-                const SizedBox(height: 22),
-                Align(
-                  alignment: Alignment.center,
-                  child: SizedBox(
-                    width: 250,
-                    child: ElevatedButton(
-                      onPressed: onPressed,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: color,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
+                const SizedBox(height: 40),
+                SizedBox(
+                  width: 250,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: ElevatedButton(
+                        onPressed: onPressed,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          textStyle: const TextStyle(fontWeight: FontWeight.w400),
                         ),
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        textStyle: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(actionText, style: TextStyle(
-                            fontSize: 15
-                          ),),
-                          const SizedBox(width: 40),
-                          const Icon(Icons.arrow_forward, size: 18),
-                        ],
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(actionText, style: TextStyle(fontSize: 15)),
+                            const SizedBox(width: 60),
+                            const Icon(Icons.arrow_forward, size: 18),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
+
 
               ],
             ),
           ),
 
           SizedBox(width: 20),
-          Image.asset(
-            imagePath,
-            height: imageHeight,
-            width: imageWidth,
-            fit: BoxFit.contain,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 40),
+            child: Image.asset(
+              imagePath,
+              height: imageHeight,
+              width: imageWidth,
+              fit: BoxFit.contain,
+            ),
           ),
         ],
       ),

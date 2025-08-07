@@ -20,82 +20,87 @@ class SubscriptionView extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(2.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
-            Row(
-              children: [
-                IconButton(
-                icon: const Icon(Icons.arrow_back_ios_new_outlined, color: Colors.orange),
-                onPressed: () {
-                  Get.back();
-                },
-                ),
-                          const Text(
-                      ' Get access to\nour programs',
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.w200,
-                        color: Color(0xFF172B75),
-                      ),
-                      textAlign: TextAlign.center,
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back_ios_new_outlined,
+                          color: Colors.orange),
+                      onPressed: () {
+                        Get.back();
+                      },
                     ),
-              ],
-            ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Center(
+                        child: const Text(
+                          ' Get access to\n our programs',
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.w200,
+                            color: Color(0xFF172B75),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 16),
                 Image.asset(KImages.subscriptionImage),
                 const SizedBox(height: 20),
                 Obx(() => Column(
-                  children: [
-                    PlanToggleButton(
-                      label: controller.userType.value == UserType.business
-                          ? '₹1230 yearly'
-                          : controller.userType.value == UserType.professional
-                          ? '₹1086 yearly'
-                          : '₹960 yearly',
-                      onTap: () { controller.selectPlan('yearly');
-                        Get.toNamed(Routes.PAYMENT_SCREEN);
-                      },
-                    ),
-                    const SizedBox(height: 12),
-                    PlanToggleButton(
-                      label: controller.userType.value == UserType.business
-                          ? '₹141 monthly'
-                          : controller.userType.value == UserType.professional
-                          ? '₹123 monthly'
-                          : '₹96  monthly',
-                      onTap: () {
-                        controller.selectPlan('monthly');
+                      children: [
+                        PlanToggleButton(
+                          label: controller.userType.value == UserType.business
+                              ? '₹1230 yearly'
+                              : controller.userType.value ==
+                                      UserType.professional
+                                  ? '₹1086 yearly'
+                                  : '₹960 yearly',
+                          onTap: () {
+                            controller.selectPlan('yearly');
+                            Get.toNamed(Routes.PAYMENT_SCREEN);
+                          },
+                        ),
+                        const SizedBox(height: 12),
+                        PlanToggleButton(
+                          label: controller.userType.value == UserType.business
+                              ? '₹141 monthly'
+                              : controller.userType.value ==
+                                      UserType.professional
+                                  ? '₹123 monthly'
+                                  : '₹96  monthly',
+                          onTap: () {
+                            controller.selectPlan('monthly');
 
-                        Get.dialog(
-                          SubscriptionDialog(
-                            onBack: () => Get.back(),
-                            onMonthly: () {
-                              Get.toNamed(Routes.PAYMENT_SCREEN);
-                            },
-                            onAnnual: () {
-                              Get.back();
-                              Get.toNamed(Routes.PAYMENT_SCREEN);
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                )),
+                            Get.dialog(
+                              SubscriptionDialog(
+                                onBack: () => Get.back(),
+                                onMonthly: () {
+                                  Get.toNamed(Routes.PAYMENT_SCREEN);
+                                },
+                                onAnnual: () {
+                                  Get.back();
+                                  Get.toNamed(Routes.PAYMENT_SCREEN);
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    )),
                 const SizedBox(height: 20),
                 Obx(() => FreeTrialToggle(
-                  isEnabled: controller.enableTrial.value,
-                  onToggle: controller.toggleTrial,
-                )),
+                      isEnabled: controller.enableTrial.value,
+                      onToggle: controller.toggleTrial,
+                    )),
                 SizedBox(height: 50),
-                OneTimeOfferButton(
-                  onTap: () {
-                    Get.toNamed(Routes.PAYMENT_SCREEN
-                    );
-                  }
-                ),
+                OneTimeOfferButton(onTap: () {
+                  Get.toNamed(Routes.PAYMENT_SCREEN);
+                }),
                 const SizedBox(height: 10),
 
                 // Align widget to ensure full width
@@ -115,29 +120,28 @@ class SubscriptionView extends StatelessWidget {
 
                 RichText(
                     textAlign: TextAlign.center,
-                    text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: 'terms & conditions\n',
-                      style: TextStyle(
-                        fontSize: 12, color: Color(0xFFEF2D56)
+                    text: TextSpan(children: [
+                      TextSpan(
+                        text: 'terms & conditions\n',
+                        style:
+                            TextStyle(fontSize: 12, color: Color(0xFFEF2D56)),
                       ),
-                    ),
-                    TextSpan(
-                      text: 'You can cancel autopay for your monthly subscription anytime\n',
-                      style: TextStyle(
-                        fontSize: 12, color: Colors.black,
+                      TextSpan(
+                        text:
+                            'You can cancel autopay for your monthly subscription anytime\n',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
-                    TextSpan(
-                      text: 'no hassle, no worries',
-                      style: TextStyle(
-                        fontSize: 12, color: Color(0xFF006DF4),
+                      TextSpan(
+                        text: 'no hassle, no worries',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF006DF4),
+                        ),
                       ),
-                    ),
-                  ]
-                )
-                ),
+                    ])),
               ],
             ),
           ),

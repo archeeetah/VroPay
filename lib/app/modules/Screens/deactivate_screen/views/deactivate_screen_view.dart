@@ -28,33 +28,33 @@ class DeactivateScreenView extends StatelessWidget {
                 child: Column(
                   children: [
                     const Text(
-                      "All your profile data, preferences, and progress will be permanently deleted.",
+                      "All your profile data, preferences,\nand progress will be permanently\n deleted.",
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
                     ),
                     const SizedBox(height: 20),
                     const Text(
-                      "To return, you’ll need to sign up again from scratch.",
+                      "To return, you’ll need to sign up\n again from scratch.",
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
                     ),
                     const SizedBox(height: 20),
                     const Text(
-                      "If you're just taking a break, we recommend signing out instead..\n"
-                          "you can sign back in anytime and pick up where you left off.",
+                      "If you're just taking a break, we\n recommend signing out instead..\n"
+                          "you can sign back in anytime\n and pick up where you left off.",
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
                     ),
                     const SizedBox(height: 30),
                     Image.asset("assets/images/deactivate.png", height: 170),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
                     const Text(
                       "Note:\nAny active monthly subscription with auto-pay will be cancelled "
                           "after today and won’t renew.",
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 13, color: Colors.red),
+                      style: TextStyle(fontSize: 13, color: Colors.red, decoration: TextDecoration.underline, decorationColor: Colors.red),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 50),
                     Obx(() => CheckboxListTile(
                       title: const Text(
                         "I want to permanently erase my profile,\npreferences, and progress",

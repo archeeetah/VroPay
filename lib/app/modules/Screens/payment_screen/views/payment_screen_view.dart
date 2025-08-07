@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vropay_final/app/modules/Screens/payment_screen/controllers/payment_screen_controller.dart';
 
 import '../../../../../Components /back_icon.dart';
+import '../../../../routes/app_pages.dart';
 import '../widgets/payment_dialog.dart';
 
 
@@ -11,7 +14,7 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    // Show dialog after the first frame
+    /// Show dialog after the first frame
     Future.delayed(Duration.zero, () {
       _showPaymentDialog(context);
     });
@@ -19,7 +22,7 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
     return Scaffold(
       body: Stack(
         children: [
-          // Top content (BackIcon + Title)
+          /// Top content (BackIcon + Title)
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(24, 20, 24, 0),
@@ -63,11 +66,41 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
       ),
     );
   }
-
-  void _showPaymentDialog(BuildContext context) {
-    showDialog(
+  void _showPaymentDialog(BuildContext context) async {
+    final result = await showGeneralDialog(
       context: context,
-      builder: (_) => PaymentMethodDialog(controller: controller),
+      barrierDismissible: true,
+      barrierLabel: "Payment Dialog",
+      barrierColor: Colors.black.withOpacity(0.8),
+      transitionDuration: const Duration(milliseconds: 300),
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return Stack(
+          children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: Container(
+                color: Colors.black.withOpacity(0),
+              ),
+            ),
+            Center(
+              child: PaymentMethodDialog(controller: controller),
+            ),
+          ],
+        );
+      },
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(
+          opacity: CurvedAnimation(
+            parent: animation,
+            curve: Curves.easeOut,
+          ),
+          child: child,
+        );
+      },
     );
+
+    if (result == 'goToSubscription') {
+      Get.offAllNamed(Routes.SUBSCRIPTION);
+    }
   }
 }

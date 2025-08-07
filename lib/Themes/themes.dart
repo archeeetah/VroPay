@@ -19,7 +19,7 @@ class TAppTheme {
       fontFamily: 'Poppins',
       brightness: Brightness.dark,
       primaryColor: Colors.white,
-      scaffoldBackgroundColor: Colors.black45,
+      scaffoldBackgroundColor: Colors.white,
       textTheme: KTextTheme.darkText
   );
 }

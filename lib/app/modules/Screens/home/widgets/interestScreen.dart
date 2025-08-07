@@ -41,7 +41,7 @@ class InterestsScreen extends StatelessWidget {
                   "Follow your Interests",
                   style: TextStyle(
                     fontSize: 23,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
                     color: Color(0xFF0066FF),
                   ),
                   textAlign: TextAlign.center,
@@ -51,8 +51,8 @@ class InterestsScreen extends StatelessWidget {
 
                 Obx(() {
                   return Wrap(
-                    spacing: 15,
-                    runSpacing: 15,
+                    spacing: 8,
+                    runSpacing: 9,
                     children: controller.interests.map((topic) {
                       final isSelected = controller.selectedInterests.contains(topic);
                       return ChoiceChip(
@@ -67,7 +67,7 @@ class InterestsScreen extends StatelessWidget {
                         selectedColor: Color(0xFF172B75),
                         shape: RoundedRectangleBorder(
                           side: BorderSide(color: Color(0xFF172B75)),
-                          borderRadius: BorderRadius.circular(35),
+                          borderRadius: BorderRadius.circular(22),
                         ),
                         selected: isSelected,
                         onSelected: (_) => controller.toggleInterest(topic),
@@ -75,7 +75,7 @@ class InterestsScreen extends StatelessWidget {
                     }).toList(),
                   );
                 }),
-
+const SizedBox(height: 10,),
             const Text(
               "Choose min 1 or max all",
               style: TextStyle(

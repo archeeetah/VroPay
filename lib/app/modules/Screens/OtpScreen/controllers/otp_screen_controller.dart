@@ -95,6 +95,7 @@ class OTPController extends GetxController {
   void updateOtp(String value) {
     otpCode.value = value;
   }
+  
   @override
   void onClose() {
     emailController.dispose();

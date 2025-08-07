@@ -133,13 +133,13 @@ class CommunityForumView extends GetView<CommunityForumController> {
                       ),
                       child: const Text("AI (name of last community connected)"),
                     ),
-                    const SizedBox(height: 16),
-                    _buildCard('world\n&\nculture', Color(0xFF02D7C3)),
-                    const SizedBox(height: 12),
-                    _buildCard('personal\ngrowth', Color(0xFF7DE7C1)),
-                    const SizedBox(height: 12),
-                    _buildCard('business\n&\ninnovation', Color(0xFF22C58D)),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 30),
+                    _buildCard('world\n&\nculture'),
+                    const SizedBox(height: 30),
+                    _buildCard('personal\ngrowth'),
+                    const SizedBox(height: 30),
+                    _buildCard('business\n&\ninnovation',),
+                    const SizedBox(height: 40),
                     Container(
                       color: const Color(0xFF01B3B2),
                       padding: const EdgeInsets.all(16),
@@ -180,14 +180,14 @@ class CommunityForumView extends GetView<CommunityForumController> {
     );
   }
 
-  Widget _buildCard(String text, Color color) {
+  Widget _buildCard(String text,) {
     return Center(
       child: Container(
         width: 304,
         height: 355,
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-          color: color,
+          color: Color(0xFF3E9292),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
@@ -195,7 +195,7 @@ class CommunityForumView extends GetView<CommunityForumController> {
             Text(
               text,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 40, color: Color(0xFF4B7C24)),
+              style: TextStyle(fontSize: 40, color: Color(0xFFD9D9D9)),
             ),
             const SizedBox(height: 8),
             const Spacer(),
