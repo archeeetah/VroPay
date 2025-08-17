@@ -26,11 +26,11 @@ class InfoFieldRow extends StatelessWidget {
           children: [
             Icon(icon, color: const Color(0xFF83A5FA)),
             const SizedBox(width: 8),
-            Text(label, style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text(label, style: isEditMode? TextStyle( fontWeight: FontWeight.w300, color: Color(0xFF172B75)) : TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF172B75))),
             const Spacer(),
             isEditMode
-                ? SizedBox(width: 160, child: editChild)
-                : Text('Selected', textAlign: TextAlign.right),
+                ? SizedBox(width: 180, child: editChild)
+                : Text(value, textAlign: TextAlign.right),
           ],
         ),
         if (isEditMode && helper != null)

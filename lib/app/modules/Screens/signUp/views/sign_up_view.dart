@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vropay_final/Utilities%20/constants%20/KImages.dart';
 
-import '../../../../../Components /constant_buttons.dart';
+import '../../../../../Components/constant_buttons.dart';
 import '../../../../../Utilities /constants /Colors.dart';
 import '../../onBoarding/widgets/faq_help.dart';
 import '../controllers/sign_up_controller.dart';

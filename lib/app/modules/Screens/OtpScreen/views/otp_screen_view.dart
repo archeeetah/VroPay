@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:vropay_final/Utilities%20/constants%20/Colors.dart';
-import '../../../../../Components /constant_buttons.dart';
+import '../../../../../Components/constant_buttons.dart';
 import '../../../../../Utilities /constants /KImages.dart';
 import '../../onBoarding/widgets/faq_help.dart';
 import '../controllers/otp_screen_controller.dart';
@@ -26,7 +26,7 @@ class OtpScreenView extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: IconButton(
                     icon: Icon(Icons.arrow_back_ios, color: Colors.black,
-                    size: 20,),
+                      size: 20,),
                     onPressed: () => Get.back(),
                   ),
                 ),
@@ -43,7 +43,7 @@ class OtpScreenView extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     appContext: context,
                     textStyle: TextStyle(fontSize: 18,
-                    color: Color(0xFF172B75)),
+                        color: Color(0xFF172B75)),
                     pinTheme: PinTheme(
                       shape: PinCodeFieldShape.box,
                       borderRadius: BorderRadius.circular(6),
@@ -91,9 +91,9 @@ class OtpScreenView extends StatelessWidget {
                     child: Text(
                       "Resend OTP?",
                       style: TextStyle(
-                        color: Color(0xFF4263E0),
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline
+                          color: Color(0xFF4263E0),
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline
                       ),
                     ),
                   ) ,

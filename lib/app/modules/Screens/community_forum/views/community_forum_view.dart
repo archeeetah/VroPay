@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vropay_final/app/modules/Screens/community_forum/controllers/community_forum_controller.dart';
 
-import '../../../../../Components /bottom_navbar.dart';
-import '../../../../../Components /top_navbar.dart';
+import '../../../../../Components/bottom_navbar.dart';
+import '../../../../../Components/top_navbar.dart';
+
 
 
 class CommunityForumView extends GetView<CommunityForumController> {

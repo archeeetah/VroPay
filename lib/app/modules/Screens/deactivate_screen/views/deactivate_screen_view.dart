@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../Components /back_icon.dart';
+import '../../../../../Components/back_icon.dart';
 import '../controllers/deactivate_screen_controller.dart';
 
 class DeactivateScreenView extends StatelessWidget {
-  final controller = Get.put(DeactivateController());
+  final controller = Get.find<DeactivateController>();
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class DeactivateScreenView extends StatelessWidget {
                     const SizedBox(height: 50),
                     Obx(() => CheckboxListTile(
                       title: const Text(
-                        "I want to permanently erase my profile,\npreferences, and progress",
+                        "I want to permanently erase my profile, preferences, and progress",
                         style: TextStyle(
                           color: Color(0xFF1B2B6B),
                           fontWeight: FontWeight.w500,

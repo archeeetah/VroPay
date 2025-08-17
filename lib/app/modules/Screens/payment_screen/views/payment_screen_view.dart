@@ -3,8 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vropay_final/app/modules/Screens/payment_screen/controllers/payment_screen_controller.dart';
-
-import '../../../../../Components /back_icon.dart';
+import '../../../../../Components/back_icon.dart';
 import '../../../../routes/app_pages.dart';
 import '../widgets/payment_dialog.dart';
 

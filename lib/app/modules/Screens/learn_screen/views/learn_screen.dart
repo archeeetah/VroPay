@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vropay_final/Components%20/top_navbar.dart';
-
 import 'package:vropay_final/app/routes/app_pages.dart';
 
-import '../../../../../Components /bottom_navbar.dart';
+import '../../../../../Components/bottom_navbar.dart';
+import '../../../../../Components/top_navbar.dart';
 import '../controllers/learn_screen_controller.dart';
 
 
@@ -138,7 +137,7 @@ class LearnScreenView extends GetView<LearnScreenController> {
                   "engage",
                   'assets/images/communityForum.png',
                   122,
-                  102,
+                  80,
                       () => Get.toNamed(Routes.COMMUNITY_FORUM),
                 ),
                 SizedBox(height: 40),

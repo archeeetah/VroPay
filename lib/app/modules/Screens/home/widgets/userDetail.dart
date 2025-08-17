@@ -110,10 +110,8 @@ class UserDetail extends GetView<HomeController> {
               ),
             ),
             const Spacer(),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: Image.asset( 'assets/images/vropayLogo.png', height: 40,),
-            ),
+            const SizedBox(height: 4),
+            Image.asset( 'assets/images/vropayLogo.png', height: 30,),
           ],
         ),
       ),

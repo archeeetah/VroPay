@@ -13,13 +13,13 @@ class DeactivateController extends GetxController {
   void onDeactivate() {
     if (!confirmErase.value) {
       Get.snackbar("Confirmation Required", "Please check the box to continue",
-          snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.white);
+          snackPosition: SnackPosition.BOTTOM, backgroundColor: Colors.black);
       return;
     }
 
     Get.dialog(
       const GoodbyeOverlayWidget(),
-      barrierDismissible: false, // Don't allow closing by tapping outside
+      barrierDismissible: false,
     );
   }
 }

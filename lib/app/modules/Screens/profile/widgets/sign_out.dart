@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vropay_final/Components%20/back_icon.dart';
 import 'package:vropay_final/app/routes/app_pages.dart';
+
+import '../../../../../Components/back_icon.dart';
 
 class SignOutDialog extends StatelessWidget {
   const SignOutDialog({super.key});

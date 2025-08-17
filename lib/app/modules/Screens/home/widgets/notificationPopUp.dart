@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../Components /back_icon.dart';
+import '../../../../../Components/back_icon.dart';
+
 
 class NotificationScreen extends StatelessWidget {
   final VoidCallback onFinish;

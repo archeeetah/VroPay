@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vropay_final/app/modules/Screens/profile/widgets/sign_out.dart';
-import '../../../../../Components /bottom_navbar.dart';
-import '../../../../../Components /top_navbar.dart';
+import '../../../../../Components/bottom_navbar.dart';
+import '../../../../../Components/top_navbar.dart';
 import '../../../../routes/app_pages.dart';
 import '../../home/controllers/home_controller.dart';
 import '../controllers/profile_controller.dart';
@@ -203,7 +203,7 @@ class _ProfileSection extends StatelessWidget {
               ),
               if (isEditMode)
                 const Padding(
-                  padding: EdgeInsets.only(top: 4.0, left: 100),
+                  padding: EdgeInsets.only(top: 4.0, left: 160),
                   child: Text(
                     '3 time changes allowed',
                     style: TextStyle(
@@ -220,8 +220,10 @@ class _ProfileSection extends StatelessWidget {
                 children: [
                   InfoFieldRow(
                     icon: Icons.phone_android_outlined,
-                    label: 'Mob no',
-                    value: controller.phoneController.text,
+                    label: isEditMode? 'mob no':'Mob no',
+                    value: controller.phoneController.text.isEmpty
+                        ? '0245814170'
+                        : controller.phoneController.text,
                     isEditMode: isEditMode,
                     editChild: BlueEditableField(
                       controller: controller.phoneController,
@@ -231,7 +233,7 @@ class _ProfileSection extends StatelessWidget {
                   ),
                   if (isEditMode)
                     const Padding(
-                      padding: EdgeInsets.only(left: 200.0, top: 4),
+                      padding: EdgeInsets.only(left: 180.0, top: 4),
                       child: Text(
                         'otp - verification needed',
                         style: TextStyle(
@@ -251,7 +253,7 @@ class _ProfileSection extends StatelessWidget {
                 children: [
                   InfoFieldRow(
                     icon: Icons.email_outlined,
-                    label: 'Email id',
+                    label: isEditMode? 'email id':'Email id',
                     value: controller.emailController.text,
                     isEditMode: isEditMode,
                     editChild: BlueEditableField(
@@ -262,7 +264,7 @@ class _ProfileSection extends StatelessWidget {
                   ),
                   if (isEditMode)
                     const Padding(
-                      padding: EdgeInsets.only(left: 200.0, top: 4),
+                      padding: EdgeInsets.only(left: 180.0, top: 4),
                       child: Text(
                         'otp - verification needed',
                         style: TextStyle(
@@ -279,7 +281,7 @@ class _ProfileSection extends StatelessWidget {
               // Gender
               isEditMode
                   ? DropdownPreference(
-                label: 'Gender',
+                label: isEditMode? 'gender':'Gender',
                 options: controller.genderOptions,
                 selectedValue: controller.selectedGender,
                 iconPath: 'assets/icons/gender.png',
@@ -329,7 +331,7 @@ class _ProfileSection extends StatelessWidget {
           right: 0,
           child: Center(
             child: Container(
-              width: 200,
+              width: 160,
               height: 40,
               padding:
               const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -438,7 +440,7 @@ class _PreferencesSection extends StatelessWidget {
               const SizedBox(height: 16,),
               for (var item in items)
                 Padding(
-                  padding: EdgeInsets.only(bottom: isEditMode ? 12 : 20),
+                  padding: EdgeInsets.only(bottom: isEditMode ? 18 : 20),
                   child: item.$2 == 'Topics' && isEditMode
                       ? GestureDetector(
                     onTap: () {
@@ -505,7 +507,7 @@ class _PreferencesSection extends StatelessWidget {
           right: 0,
           child: Center(
             child: Container(
-              width: 200,
+              width: 160,
               height: 40,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
               decoration: BoxDecoration(
