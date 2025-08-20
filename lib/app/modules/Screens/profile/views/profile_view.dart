@@ -116,8 +116,9 @@ class _ProfileSection extends StatelessWidget {
                       Text(
                         isEditMode ? 'done' : 'edit',
                         style: const TextStyle(
-                          color: Colors.grey,
+                          color: Color(0xFF616161),
                           fontSize: 14,
+                          fontWeight: FontWeight.bold
                         ),
                       ),
                       const SizedBox(width: 4),
@@ -300,9 +301,12 @@ class _ProfileSection extends StatelessWidget {
                           height: 20,
                         ),
                         const SizedBox(width: 10),
-                        const Text(
+                        Text(
                           'Gender',
-                          style: TextStyle(
+                          style: isEditMode? TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xFF172B75),
+                          ): TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF172B75),
                           ),
@@ -334,10 +338,10 @@ class _ProfileSection extends StatelessWidget {
               width: 160,
               height: 40,
               padding:
-              const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
               decoration: BoxDecoration(
                 color: isEditMode? Colors.white: const Color(0xFF714FC0),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
               ),
               child: Center(
                 child: Text(
@@ -425,7 +429,9 @@ class _PreferencesSection extends StatelessWidget {
                     children: [
                       Text(isEditMode ? 'done' : 'edit',
                           style: const TextStyle(
-                              color: Colors.grey, fontSize: 14)),
+                              color: Color(0xFF616161),
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold)),
                       const SizedBox(width: 4),
                       Image.asset(
                         'assets/icons/profileEdit.png',
@@ -507,19 +513,19 @@ class _PreferencesSection extends StatelessWidget {
           right: 0,
           child: Center(
             child: Container(
-              width: 160,
+              width: 180,
               height: 40,
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
               decoration: BoxDecoration(
                 color: isEditMode? Colors.white: const Color(0xFF714FC0),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
               ),
               child: Center(
                 child: Text(
                   isEditMode? 'preferences':'Preferences',
                   style: TextStyle(
                       fontSize: 25,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w300,
                       color: isEditMode? Color(0xFF172B75): Colors.white),
                 ),
               ),

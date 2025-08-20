@@ -45,14 +45,23 @@ class PlanToggleButton extends StatelessWidget {
                   style: TextStyle(
                     color: Color(0xFF172B75),
                     fontWeight: FontWeight.w300,
+                    fontSize: 15
                   ),
                 ),
                 const SizedBox(width: 6),
                 Container(
-                    width: 30,
+                    width: 28,
                     height: 30,
                     color: Color(0xFF172B75),
-                    child: const Icon(Icons.arrow_forward, color: Colors.white)),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/icons/arrow_icon.png',
+                      width: 20,
+                      height: 16,
+                      color: Colors.white, // optional tint, remove if not needed
+                    ),
+                  ),
+                ),
               ],
             ),
           ],

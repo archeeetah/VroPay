@@ -84,13 +84,13 @@ class OneTimeOfferButton extends StatelessWidget {
 
           // Blue Label - Overlapping
           Positioned(
-            top: -12, // push slightly above red button
+            top: -18, // push slightly above red button
             left: 6,
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
               decoration: BoxDecoration(
-                color: const Color(0xFF1B2C80),
-                borderRadius: BorderRadius.circular(20),
+                color: const Color(0xFF1B2C80).withOpacity(0.40),
+                borderRadius: BorderRadius.circular(5),
               ),
               child: const Text(
                 'For first 1000 paid users',

@@ -90,12 +90,14 @@ class CommunityAccessScreen extends StatelessWidget {
       String? selectedOption,
       HomeController controller,
       ) {
-    final bool selected = selectedOption == title;
+    final bool isSelected = selectedOption == title;
 
-    // Choose background based on title
-    final Color bgColor = title.contains("Join")
+    // Colors only if selected
+    final Color bgColor = isSelected
+        ? (title.contains("Join")
         ? const Color(0xFFFFE6EB) // Light pink
-        : const Color(0xFFDFF0FF); // Light blue
+        : const Color(0xFFDFF0FF)) // Light blue
+        : Colors.white; // Default unselected = white
 
     return GestureDetector(
       onTap: () => controller.updateCommunityAccess(title),
@@ -106,6 +108,10 @@ class CommunityAccessScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: isSelected ? Colors.transparent : const Color(0xFF172B75).withOpacity(0.3),
+            width: 1,
+          ),
         ),
         child: Center(
           child: RichText(
@@ -140,4 +146,5 @@ class CommunityAccessScreen extends StatelessWidget {
       ),
     );
   }
+
 }

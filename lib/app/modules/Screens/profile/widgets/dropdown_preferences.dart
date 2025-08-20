@@ -6,9 +6,11 @@ class DropdownPreference extends StatelessWidget {
   final List<String> options;
   final RxString selectedValue;
   final String iconPath;
+  final bool isEditMode;
 
   const DropdownPreference({
     required this.label,
+    this.isEditMode = false,
     required this.options,
     required this.selectedValue,
     required this.iconPath,
@@ -32,7 +34,10 @@ class DropdownPreference extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 label,
-                style: const TextStyle(
+                style:  isEditMode ? TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF172B75)
+              ) : TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF172B75),
                 ),

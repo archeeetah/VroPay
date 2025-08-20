@@ -17,7 +17,7 @@ class SubscriptionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF7F7F7),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(2.0),
@@ -40,8 +40,9 @@ class SubscriptionView extends StatelessWidget {
                           ' Get access to\n our programs',
                           style: TextStyle(
                             fontSize: 40,
-                            fontWeight: FontWeight.w200,
+                            fontWeight: FontWeight.w100,
                             color: Color(0xFF172B75),
+                            height: 0.8
                           ),
                         ),
                       ),
